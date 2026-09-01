@@ -1,6 +1,10 @@
+
 const express = require('express');
+const helmet = require('helmet'); // Importar Helmet
 const app = express();
 const port = 3000;
+
+app.use(helmet()); // Usar Helmet para aplicar cabeceras de seguridad, incluyendo X-XSS-Protection
 
 app.get('/', (req, res) => {
   const userInput = req.query.input || 'No se proporcionó entrada';
