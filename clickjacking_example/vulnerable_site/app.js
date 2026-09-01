@@ -1,7 +1,9 @@
-
 const express = require('express');
+const helmet = require('helmet'); // Importar Helmet
 const app = express();
 const port = 3002; // Puerto para el sitio vulnerable
+
+app.use(helmet.frameguard({ action: 'deny' })); // Previene Clickjacking
 
 app.get('/', (req, res) => {
   res.send(`
